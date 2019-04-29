@@ -1,0 +1,5 @@
+#
+# File: py-rcsb_utils_citation/MANIFEST.in
+#
+include HISTORY.txt
+#

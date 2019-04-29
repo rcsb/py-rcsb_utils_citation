@@ -1,0 +1,4 @@
+# RCSB_UTILS_CITATION HISTORY
+
+  27-Apr-2019  - V0.10 Created module supporting normalization of citation journal and title data.
+
