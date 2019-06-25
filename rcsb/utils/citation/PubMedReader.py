@@ -26,17 +26,17 @@ class PubMedReader(object):
     """
 
     def __init__(self):
-        self.__ns = ''
+        self.__ns = ""
 
     def readString(self, xmlText):
         rD = {}
-        logger.debug("Text is %r" % xmlText)
+        logger.debug("Text is %r", xmlText)
         rootEl = ET.fromstring(xmlText)
         for pmEl in rootEl:
-            logger.debug("root is %r" % pmEl)
-            d = self.__processPubMedElement(pmEl)
-            if 'pmid' in d:
-                rD[d['pmid']] = d
+            logger.debug("root is %r", pmEl)
+            dD = self.__processPubMedElement(pmEl)
+            if "pmid" in dD:
+                rD[dD["pmid"]] = dD
 
         return rD
 
@@ -44,23 +44,21 @@ class PubMedReader(object):
 
         assert pmEl.tag == "{ns}PubmedArticle".format(ns=self.__ns)
 
-        doc = {
-            'pmid': pmEl.findtext("{ns}MedlineCitation/{ns}PMID".format(ns=self.__ns))
-        }
+        doc = {"pmid": pmEl.findtext("{ns}MedlineCitation/{ns}PMID".format(ns=self.__ns))}
 
         #
         el = pmEl.find("{ns}MedlineCitation/{ns}Article".format(ns=self.__ns))
-        logger.debug("article model %r" % el.get('PubModel'))
-        doc['article'] = self.__processArticle(el) if el is not None else {}
+        logger.debug("article model %r", el.get("PubModel"))
+        doc["article"] = self.__processArticle(el) if el is not None else {}
         #
         el = pmEl.find("{ns}MedlineCitation/{ns}ChemicalList".format(ns=self.__ns))
-        doc['chemicals'] = self.__processChemicals(el) if el is not None else []
+        doc["chemicals"] = self.__processChemicals(el) if el is not None else []
         #
         el = pmEl.find("{ns}MedlineCitation/{ns}MeshHeadingList".format(ns=self.__ns))
-        doc['mesh'] = self.__processMesh(el) if el is not None else []
+        doc["mesh"] = self.__processMesh(el) if el is not None else []
         #
         el = pmEl.find("{ns}PubmedData".format(ns=self.__ns))
-        doc['related_ids'] = self.__processData(el) if el is not None else {}
+        doc["related_ids"] = self.__processData(el) if el is not None else {}
         #
         #
         return doc
@@ -77,10 +75,10 @@ class PubMedReader(object):
         """
         doc = {}
         for ael in el.findall("{ns}ArticleIdList/{ns}ArticleId".format(ns=self.__ns)):
-            if ael.get('IdType') in ['pmc']:
-                doc['pmcid'] = ael.text
-            elif ael.get('IdType') in ['doi']:
-                doc['doi'] = ael.text
+            if ael.get("IdType") in ["pmc"]:
+                doc["pmcid"] = ael.text
+            elif ael.get("IdType") in ["doi"]:
+                doc["doi"] = ael.text
         #
         return doc
 
@@ -133,13 +131,9 @@ class PubMedReader(object):
         """
         rL = []
         try:
-            rL = [{'term': ml.text,
-                   'id': ml.get('UI'),
-                   'major': ml.get('MajorTopicYN'),
-                   }
-                  for ml in el.findall("{ns}MeshHeading/{ns}DescriptorName".format(ns=self.__ns))]
+            rL = [{"term": ml.text, "id": ml.get("UI"), "major": ml.get("MajorTopicYN")} for ml in el.findall("{ns}MeshHeading/{ns}DescriptorName".format(ns=self.__ns))]
         except Exception as e:
-            logger.exception("Failing with %s" % str(e))
+            logger.exception("Failing with %s", str(e))
 
         return rL
 
@@ -166,12 +160,12 @@ class PubMedReader(object):
         """
         rL = []
         try:
-            rL = [{'registry_number': cl.findtext('{ns}RegistryNumber'.format(ns=self.__ns)),
-                   'name': cl.findtext('{ns}NameOfSubstance'.format(ns=self.__ns)),
-                   }
-                  for cl in el.findall("{ns}Chemical".format(ns=self.__ns))]
+            rL = [
+                {"registry_number": cl.findtext("{ns}RegistryNumber".format(ns=self.__ns)), "name": cl.findtext("{ns}NameOfSubstance".format(ns=self.__ns))}
+                for cl in el.findall("{ns}Chemical".format(ns=self.__ns))
+            ]
         except Exception as e:
-            logger.exception("Failing with %s" % str(e))
+            logger.exception("Failing with %s", str(e))
         return rL
 
     def __processArticle(self, el):
@@ -262,36 +256,36 @@ class PubMedReader(object):
             </Article>
         """
         aD = {
-            'pubmed_model': el.attrib['PubModel'],
-            'ISSN': el.findtext("{ns}Journal/{ns}ISSN".format(ns=self.__ns)),
-            'journal_title': el.findtext("{ns}Journal/{ns}Title".format(ns=self.__ns)),
-            'journal_title_iso_abbrev': el.findtext("{ns}Journal/{ns}ISOAbbreviation".format(ns=self.__ns)),
+            "pubmed_model": el.attrib["PubModel"],
+            "ISSN": el.findtext("{ns}Journal/{ns}ISSN".format(ns=self.__ns)),
+            "journal_title": el.findtext("{ns}Journal/{ns}Title".format(ns=self.__ns)),
+            "journal_title_iso_abbrev": el.findtext("{ns}Journal/{ns}ISOAbbreviation".format(ns=self.__ns)),
             #
-            'article_volume': el.findtext("{ns}Journal/{ns}JournalIssue/{ns}Volume".format(ns=self.__ns)),
-            'article_isssue': el.findtext("{ns}Journal/{ns}JournalIssue/{ns}Issue".format(ns=self.__ns)),
-            'articleYear': el.findtext("{ns}Journal/{ns}JournalIssue/{ns}PubDate/{ns}Year".format(ns=self.__ns)),
+            "article_volume": el.findtext("{ns}Journal/{ns}JournalIssue/{ns}Volume".format(ns=self.__ns)),
+            "article_isssue": el.findtext("{ns}Journal/{ns}JournalIssue/{ns}Issue".format(ns=self.__ns)),
+            "articleYear": el.findtext("{ns}Journal/{ns}JournalIssue/{ns}PubDate/{ns}Year".format(ns=self.__ns)),
             #
-            'article_title': el.findtext("{ns}ArticleTitle".format(ns=self.__ns)),
-            'article_page_range': el.findtext("{ns}Pagination/{ns}MedlinePgn".format(ns=self.__ns)),
-            'authors': [
+            "article_title": el.findtext("{ns}ArticleTitle".format(ns=self.__ns)),
+            "article_page_range": el.findtext("{ns}Pagination/{ns}MedlinePgn".format(ns=self.__ns)),
+            "authors": [
                 {
-                    'last_name': al.findtext('{ns}LastName'.format(ns=self.__ns)),
-                    'fore_name': al.findtext('{ns}ForeName'.format(ns=self.__ns)),
-                    'initials': al.findtext('{ns}Initials'.format(ns=self.__ns)),
-                    'affiliations': [aal.findtext('{ns}Affiliation'.format(ns=self.__ns)) for aal in al.findall("{ns}AffiliationInfo".format(ns=self.__ns))]
+                    "last_name": al.findtext("{ns}LastName".format(ns=self.__ns)),
+                    "fore_name": al.findtext("{ns}ForeName".format(ns=self.__ns)),
+                    "initials": al.findtext("{ns}Initials".format(ns=self.__ns)),
+                    "affiliations": [aal.findtext("{ns}Affiliation".format(ns=self.__ns)) for aal in al.findall("{ns}AffiliationInfo".format(ns=self.__ns))],
                 }
                 for al in el.findall("{ns}AuthorList/{ns}Author".format(ns=self.__ns))
             ],
-            'grants': [
+            "grants": [
                 {
-                    'grant_id': al.findtext('{ns}GrantID'.format(ns=self.__ns)),
-                    'acronym': al.findtext('{ns}Acronym'.format(ns=self.__ns)),
-                    'agency': al.findtext('{ns}Agency'.format(ns=self.__ns)),
-                    'country': al.findtext('{ns}Country'.format(ns=self.__ns)),
+                    "grant_id": al.findtext("{ns}GrantID".format(ns=self.__ns)),
+                    "acronym": al.findtext("{ns}Acronym".format(ns=self.__ns)),
+                    "agency": al.findtext("{ns}Agency".format(ns=self.__ns)),
+                    "country": al.findtext("{ns}Country".format(ns=self.__ns)),
                 }
                 for al in el.findall("{ns}GrantList/{ns}Grant".format(ns=self.__ns))
             ],
-            'abstract': el.findtext("{ns}Abstract/{ns}AbstractText".format(ns=self.__ns)),
+            "abstract": el.findtext("{ns}Abstract/{ns}AbstractText".format(ns=self.__ns)),
         }
         #
         return aD
