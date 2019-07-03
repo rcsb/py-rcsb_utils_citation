@@ -1,0 +1,458 @@
+<PubmedArticleSet>
+    <PubmedArticle>
+        <MedlineCitation Status="MEDLINE" Owner="NLM">
+            <PMID Version="1">21540484</PMID>
+            <DateCompleted>
+                <Year>2011</Year>
+                <Month>09</Month>
+                <Day>09</Day>
+            </DateCompleted>
+            <DateRevised>
+                <Year>2019</Year>
+                <Month>01</Month>
+                <Day>08</Day>
+            </DateRevised>
+            <Article PubModel="Print-Electronic">
+                <Journal>
+                    <ISSN IssnType="Electronic">1083-351X</ISSN>
+                    <JournalIssue CitedMedium="Internet">
+                        <Volume>286</Volume>
+                        <Issue>26</Issue>
+                        <PubDate>
+                            <Year>2011</Year>
+                            <Month>Jul</Month>
+                            <Day>01</Day>
+                        </PubDate>
+                    </JournalIssue>
+                    <Title>The Journal of biological chemistry</Title>
+                    <ISOAbbreviation>J. Biol. Chem.</ISOAbbreviation>
+                </Journal>
+                <ArticleTitle>
+                    Conserved catalytic residues of the ALDH1L1 aldehyde dehydrogenase domain control binding and discharging of the coenzyme.
+                </ArticleTitle>
+                <Pagination>
+                    <MedlinePgn>23357-67</MedlinePgn>
+                </Pagination>
+                <ELocationID EIdType="doi" ValidYN="Y">10.1074/jbc.M111.221069</ELocationID>
+                <Abstract>
+                    <AbstractText>
+                        The C-terminal domain (C(t)-FDH) of 10-formyltetrahydrofolate dehydrogenase (FDH, ALDH1L1) is an NADP(+)-dependent oxidoreductase and a structural and functional homolog of aldehyde dehydrogenases. Here we report the crystal structures of several C(t)-FDH mutants in which two essential catalytic residues adjacent to the nicotinamide ring of bound NADP(+), Cys-707 and Glu-673, were replaced separately or simultaneously. The replacement of the glutamate with an alanine causes irreversible binding of the coenzyme without any noticeable conformational changes in the vicinity of the nicotinamide ring. Additional replacement of cysteine 707 with an alanine (E673A/C707A double mutant) did not affect this irreversible binding indicating that the lack of the glutamate is solely responsible for the enhanced interaction between the enzyme and the coenzyme. The substitution of the cysteine with an alanine did not affect binding of NADP(+) but resulted in the enzyme lacking the ability to differentiate between the oxidized and reduced coenzyme: unlike the wild-type C(t)-FDH/NADPH complex, in the C707A mutant the position of NADPH is identical to the position of NADP(+) with the nicotinamide ring well ordered within the catalytic center. Thus, whereas the glutamate restricts the affinity for the coenzyme, the cysteine is the sensor of the coenzyme redox state. These conclusions were confirmed by coenzyme binding experiments. Our study further suggests that the binding of the coenzyme is additionally controlled by a long-range communication between the catalytic center and the coenzyme-binding domain and points toward an α-helix involved in the adenine moiety binding as a participant of this communication.
+                    </AbstractText>
+                </Abstract>
+                <AuthorList CompleteYN="Y">
+                    <Author ValidYN="Y">
+                        <LastName>Tsybovsky</LastName>
+                        <ForeName>Yaroslav</ForeName>
+                        <Initials>Y</Initials>
+                        <AffiliationInfo>
+                            <Affiliation>
+                                Department of Biochemistry and Molecular Biology, Medical University of South Carolina, Charleston, South Carolina 29425, USA.
+                            </Affiliation>
+                        </AffiliationInfo>
+                    </Author>
+                    <Author ValidYN="Y">
+                        <LastName>Krupenko</LastName>
+                        <ForeName>Sergey A</ForeName>
+                        <Initials>SA</Initials>
+                    </Author>
+                </AuthorList>
+                <Language>eng</Language>
+                <DataBankList CompleteYN="Y">
+                    <DataBank>
+                        <DataBankName>PDB</DataBankName>
+                        <AccessionNumberList>
+                            <AccessionNumber>3RHJ</AccessionNumber>
+                            <AccessionNumber>3RHL</AccessionNumber>
+                            <AccessionNumber>3RHM</AccessionNumber>
+                            <AccessionNumber>3RHO</AccessionNumber>
+                            <AccessionNumber>3RHP</AccessionNumber>
+                            <AccessionNumber>3RHQ</AccessionNumber>
+                            <AccessionNumber>3RHR</AccessionNumber>
+                        </AccessionNumberList>
+                    </DataBank>
+                </DataBankList>
+                <GrantList CompleteYN="Y">
+                    <Grant>
+                        <GrantID>R01 DK054388</GrantID>
+                        <Acronym>DK</Acronym>
+                        <Agency>NIDDK NIH HHS</Agency>
+                        <Country>United States</Country>
+                    </Grant>
+                    <Grant>
+                        <GrantID>DK54388</GrantID>
+                        <Acronym>DK</Acronym>
+                        <Agency>NIDDK NIH HHS</Agency>
+                        <Country>United States</Country>
+                    </Grant>
+                </GrantList>
+                <PublicationTypeList>
+                    <PublicationType UI="D016428">Journal Article</PublicationType>
+                    <PublicationType UI="D052061">Research Support, N.I.H., Extramural</PublicationType>
+                    <PublicationType UI="D013485">Research Support, Non-U.S. Gov't</PublicationType>
+                </PublicationTypeList>
+                <ArticleDate DateType="Electronic">
+                    <Year>2011</Year>
+                    <Month>05</Month>
+                    <Day>03</Day>
+                </ArticleDate>
+            </Article>
+            <MedlineJournalInfo>
+                <Country>United States</Country>
+                <MedlineTA>J Biol Chem</MedlineTA>
+                <NlmUniqueID>2985121R</NlmUniqueID>
+                <ISSNLinking>0021-9258</ISSNLinking>
+            </MedlineJournalInfo>
+            <ChemicalList>
+                <Chemical>
+                    <RegistryNumber>0</RegistryNumber>
+                    <NameOfSubstance UI="D003067">Coenzymes</NameOfSubstance>
+                </Chemical>
+                <Chemical>
+                    <RegistryNumber>53-59-8</RegistryNumber>
+                    <NameOfSubstance UI="D009249">NADP</NameOfSubstance>
+                </Chemical>
+                <Chemical>
+                    <RegistryNumber>EC 1.2.1.3</RegistryNumber>
+                    <NameOfSubstance UI="D000444">Aldehyde Dehydrogenase</NameOfSubstance>
+                </Chemical>
+                <Chemical>
+                    <RegistryNumber>EC 1.5.1.6</RegistryNumber>
+                    <NameOfSubstance UI="C534194">ALDH1L1 protein, human</NameOfSubstance>
+                </Chemical>
+            </ChemicalList>
+            <CitationSubset>IM</CitationSubset>
+            <MeshHeadingList>
+                <MeshHeading>
+                    <DescriptorName UI="D000444" MajorTopicYN="N">Aldehyde Dehydrogenase</DescriptorName>
+                    <QualifierName UI="Q000737" MajorTopicYN="Y">chemistry</QualifierName>
+                    <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
+                    <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D019943" MajorTopicYN="N">Amino Acid Substitution</DescriptorName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D020134" MajorTopicYN="Y">Catalytic Domain</DescriptorName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D003067" MajorTopicYN="N">Coenzymes</DescriptorName>
+                    <QualifierName UI="Q000737" MajorTopicYN="Y">chemistry</QualifierName>
+                    <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
+                    <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D018360" MajorTopicYN="N">Crystallography, X-Ray</DescriptorName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D020125" MajorTopicYN="N">Mutation, Missense</DescriptorName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D009249" MajorTopicYN="N">NADP</DescriptorName>
+                    <QualifierName UI="Q000737" MajorTopicYN="Y">chemistry</QualifierName>
+                    <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
+                    <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D011485" MajorTopicYN="N">Protein Binding</DescriptorName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D017433" MajorTopicYN="N">Protein Structure, Secondary</DescriptorName>
+                </MeshHeading>
+                <MeshHeading>
+                    <DescriptorName UI="D017434" MajorTopicYN="N">Protein Structure, Tertiary</DescriptorName>
+                </MeshHeading>
+            </MeshHeadingList>
+        </MedlineCitation>
+        <PubmedData>
+            <History>
+                <PubMedPubDate PubStatus="entrez">
+                    <Year>2011</Year>
+                    <Month>5</Month>
+                    <Day>5</Day>
+                    <Hour>6</Hour>
+                    <Minute>0</Minute>
+                </PubMedPubDate>
+                <PubMedPubDate PubStatus="pubmed">
+                    <Year>2011</Year>
+                    <Month>5</Month>
+                    <Day>5</Day>
+                    <Hour>6</Hour>
+                    <Minute>0</Minute>
+                </PubMedPubDate>
+                <PubMedPubDate PubStatus="medline">
+                    <Year>2011</Year>
+                    <Month>9</Month>
+                    <Day>10</Day>
+                    <Hour>6</Hour>
+                    <Minute>0</Minute>
+                </PubMedPubDate>
+            </History>
+            <PublicationStatus>ppublish</PublicationStatus>
+            <ArticleIdList>
+                <ArticleId IdType="pubmed">21540484</ArticleId>
+                <ArticleId IdType="pii">M111.221069</ArticleId>
+                <ArticleId IdType="doi">10.1074/jbc.M111.221069</ArticleId>
+                <ArticleId IdType="pmc">PMC3123100</ArticleId>
+            </ArticleIdList>
+            <ReferenceList>
+                <Reference>
+                    <Citation>Protein Sci. 1999 Oct;8(10):1922-9</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">10548037</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>J Biol Chem. 1997 Jul 25;272(30):18817-22</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">9228056</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Biochem J. 2000 Aug 1;349 Pt 3:853-61</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">10903148</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Chem Biol Interact. 2001 Jan 30;130-132(1-3):3-14</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">11306026</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Chem Biol Interact. 2001 Jan 30;130-132(1-3):15-28</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">11306027</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Biochemistry. 2002 Jun 4;41(22):7156-68</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">12033950</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Chem Biol Interact. 2003 Feb 1;143-144:139-48</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">12604198</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Biochemistry. 2003 Jun 17;42(23):7100-9</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">12795606</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>J Biol Chem. 1972 Jan 10;247(1):267-72</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">4336042</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Arch Biochem Biophys. 1980 Dec;205(2):571-8</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">7469426</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Proc Natl Acad Sci U S A. 1984 Jan;81(1):258-61</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">6582480</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Acta Crystallogr A. 1991 Mar 1;47 ( Pt 2):110-9</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">2025413</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>J Mol Biol. 1993 Jun 20;231(4):1049-67</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">8515464</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>J Biol Chem. 1994 May 13;269(19):13854-60</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">7910607</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Biochemistry. 1995 Jan 10;34(1):237-43</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">7819202</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Protein Sci. 1998 Oct;7(10):2106-17</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">9792097</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Structure. 1998 Dec 15;6(12):1541-51</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">9862807</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Protein Sci. 1999 Jan;8(1):137-46</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">10210192</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Biochemistry. 1999 May 11;38(19):6003-11</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">10320326</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>J Mol Biol. 1999 Jul 2;290(1):161-73</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">10388564</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>
+                        Acta Crystallogr D Biol Crystallogr. 2004 Dec;60(Pt 12 Pt 1):2126-32
+                    </Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">15572765</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>
+                        Acta Crystallogr D Biol Crystallogr. 2004 Dec;60(Pt 12 Pt 1):2184-95
+                    </Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">15572771</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Proteins. 2004 Dec 1;57(4):758-71</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">15390260</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>J Biol Chem. 2005 Aug 26;280(34):30550-6</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">15983043</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>
+                        Proc Natl Acad Sci U S A. 2005 Aug 23;102(34):12159-64
+                    </Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">16103363</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Biochemistry. 2006 Mar 7;45(9):2978-86</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">16503652</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Biochemistry. 2007 Mar 20;46(11):2917-29</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">17302434</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>J Biol Chem. 2007 Apr 27;282(17):12940-50</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">17327228</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Biochemistry. 2007 Aug 21;46(33):9495-506</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">17655326</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Alcohol Res Health. 2006;29(4):245-54</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">17718403</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>
+                        Expert Opin Drug Metab Toxicol. 2008 Jun;4(6):697-720
+                    </Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">18611112</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Science. 2008 Sep 12;321(5895):1493-5</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">18787169</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>J Mol Biol. 2009 Jan 16;385(2):542-57</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">19013472</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Chem Biol Interact. 2009 Mar 16;178(1-3):84-93</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">18848533</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Chem Biol Interact. 2009 Mar 16;178(1-3):36-9</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">18983993</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Chem Biol Interact. 2009 Mar 16;178(1-3):79-83</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">19028478</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Nat Struct Mol Biol. 2010 Feb;17(2):159-64</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">20062057</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>J Biol Chem. 1997 Apr 11;272(15):10266-72</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">9092577</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Nat Struct Biol. 1997 Apr;4(4):317-26</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">9095201</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Structure. 1997 May 15;5(5):701-11</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">9195888</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+                <Reference>
+                    <Citation>Biochemistry. 2000 Mar 28;39(12):3327-35</Citation>
+                    <ArticleIdList>
+                        <ArticleId IdType="pubmed">10727225</ArticleId>
+                    </ArticleIdList>
+                </Reference>
+            </ReferenceList>
+        </PubmedData>
+    </PubmedArticle>
+</PubmedArticleSet>
