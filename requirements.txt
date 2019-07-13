@@ -1,2 +1,2 @@
-rcsb.utils.io >= 0.31
+rcsb.utils.io >= 0.32
 rcsb.utils.config >= 0.18
