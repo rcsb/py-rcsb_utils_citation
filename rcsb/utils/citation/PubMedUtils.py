@@ -93,6 +93,7 @@ class PubMedUtils(object):
 
     def getJournalIndex(self, filePath):
         """
+        ftp://ftp.ncbi.nih.gov/pubmed/J_Medline.txt
         --------------------------------------------------------
         JrId: 1
         JournalTitle: AADE editors' journal
@@ -102,7 +103,8 @@ class PubMedUtils(object):
         IsoAbbr: AADE Ed J
         NlmId: 7708172
         --------------------------------------------------------
-
+        #
+        http://ftp.crossref.org/titlelist/titleFile.csv
         """
         rL = []
         dD = {}
