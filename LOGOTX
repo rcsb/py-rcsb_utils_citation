@@ -1,0 +1,192 @@
+GLOB sdist-make: /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/setup.py
+format_pep8-py38 inst-nodeps: /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/.tmp/package/1/rcsb.utils.citation-0.11.zip
+format_pep8-py38 installed: certifi==2019.9.11,cffi==1.13.2,chardet==3.0.4,echo==0.1,entrypoints==0.3,flake8==3.7.9,flake8-import-order==0.18.1,future==0.18.2,idna==2.8,mccabe==0.6.1,mmcif==0.48,nltk==3.4.5,numpy==1.17.4,pycodestyle==2.5.0,pycparser==2.19,pyflakes==2.1.1,PyNaCl==1.3.0,rcsb.utils.citation==0.11,rcsb.utils.config==0.24,rcsb.utils.io==0.47,rcsb.utils.validation==0.19,regex==2019.11.1,requests==2.22.0,ruamel.yaml==0.16.5,six==1.13.0,urllib3==1.25.7
+format_pep8-py38 run-test-pre: PYTHONHASHSEED='2277646767'
+format_pep8-py38 run-test: commands[0] | flake8 --max-line-length=185 --ignore=D,I,E203,W503 rcsb/utils/citation rcsb/utils/tests-citation setup.py
+lint_pylint-py38 inst-nodeps: /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/.tmp/package/1/rcsb.utils.citation-0.11.zip
+lint_pylint-py38 installed: astroid==2.3.3,certifi==2019.9.11,cffi==1.13.2,chardet==3.0.4,echo==0.1,future==0.18.2,idna==2.8,isort==4.3.21,lazy-object-proxy==1.4.3,mccabe==0.6.1,mmcif==0.48,nltk==3.4.5,numpy==1.17.4,pycparser==2.19,pylint==2.4.4,PyNaCl==1.3.0,rcsb.utils.citation==0.11,rcsb.utils.config==0.24,rcsb.utils.io==0.47,rcsb.utils.validation==0.19,regex==2019.11.1,requests==2.22.0,ruamel.yaml==0.16.5,six==1.13.0,urllib3==1.25.7,wrapt==1.11.2
+lint_pylint-py38 run-test-pre: PYTHONHASHSEED='2277646767'
+lint_pylint-py38 run-test: commands[0] | echo 'Starting lint_pylint-py38'
+Starting lint_pylint-py38
+lint_pylint-py38 run-test: commands[1] | pylint --disable=R,C --reports=n --rcfile=/Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/pylintrc rcsb/utils/citation rcsb/utils/tests-citation setup.py
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+lint_pylint-py38 run-test: commands[2] | echo 'Completed lint_pylint-py38'
+Completed lint_pylint-py38
+format_black-py38 inst-nodeps: /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/.tmp/package/1/rcsb.utils.citation-0.11.zip
+format_black-py38 installed: appdirs==1.4.3,attrs==19.3.0,black==19.10b0,certifi==2019.9.11,cffi==1.13.2,chardet==3.0.4,Click==7.0,echo==0.1,future==0.18.2,idna==2.8,mmcif==0.48,nltk==3.4.5,numpy==1.17.4,pathspec==0.6.0,pycparser==2.19,PyNaCl==1.3.0,rcsb.utils.citation==0.11,rcsb.utils.config==0.24,rcsb.utils.io==0.47,rcsb.utils.validation==0.19,regex==2019.11.1,requests==2.22.0,ruamel.yaml==0.16.5,six==1.13.0,toml==0.10.0,typed-ast==1.4.0,urllib3==1.25.7
+format_black-py38 run-test-pre: PYTHONHASHSEED='2277646767'
+format_black-py38 run-test: commands[0] | echo 'Starting format_black-py38'
+Starting format_black-py38
+format_black-py38 run-test: commands[1] | black --check --line-length 180 rcsb/utils/citation rcsb/utils/tests-citation setup.py
+All done! ✨ 🍰 ✨
+10 files would be left unchanged.
+format_black-py38 run-test: commands[2] | echo 'Completed format_black-py38'
+Completed format_black-py38
+py38 create: /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/py38
+py38 installdeps: echo, -rrequirements.txt
+py38 develop-inst: /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation
+py38 installed: certifi==2019.9.11,cffi==1.13.2,chardet==3.0.4,echo==0.1,future==0.18.2,idna==2.8,mmcif==0.48,nltk==3.4.5,numpy==1.17.4,pycparser==2.19,PyNaCl==1.3.0,-e git+https://github.com/rcsb/py-rcsb_utils_citation.git@ba06a6d98cce8663768db605f2af488a6f320e98#egg=rcsb.utils.citation,rcsb.utils.config==0.24,rcsb.utils.io==0.48,rcsb.utils.validation==0.19,regex==2019.11.1,requests==2.22.0,ruamel.yaml==0.16.5,six==1.13.0,urllib3==1.25.7
+py38 run-test-pre: PYTHONHASHSEED='2277646767'
+py38 run-test: commands[0] | echo 'Starting py38'
+Starting py38
+py38 run-test: commands[1] | /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/py38/bin/python -V
+Python 3.8.0
+py38 run-test: commands[2] | /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/py38/bin/python -m unittest discover -v --start-directory rcsb/utils/tests-citation --pattern 'test*.py'
+testGetJournalAbbrevs (testCitationReferenceProvider.CitationReferenceProviderTests)
+Test get, cache and access citation reference journal abbreviations. ... INFO:rcsb.utils.citation.CitationReferenceProvider:Fetch data from source ftp://ftp.ncbi.nih.gov/pubmed/J_Medline.txt in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref
+INFO:rcsb.utils.citation.CitationReferenceProvider:Medline ISSN journal length 39412
+INFO:rcsb.utils.citation.CitationReferenceProvider:Caching 39412 Medline ISSNs in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref/medline-journals.json status True
+INFO:rcsb.utils.citation.CitationReferenceProvider:Caching 103705 CrossRef ISSNs in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref/crossref-journals.json status True
+INFO:rcsb.utils.citation.CitationReferenceProvider:Caching 15204 JabRef names in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref/crossref-journals.json status True
+INFO:rcsb.utils.citation.CitationReferenceProvider:Lengths Medline 39412 CrossRef 103705
+ok
+testGetJournalAbbrevs (testJournalTitleAbbreviationProvider.JournalTitleAbbreviationProviderTests)
+Test get, cache and access resources support journal title abbreviation methods ... [nltk_data] Downloading package wordnet to /Users/jwest/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+INFO:rcsb.utils.citation.JournalTitleAbbreviationProvider:Fetch data from source https://www.issn.org/wp-content/uploads/2013/09/LTWA_20160915.txt in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref
+INFO:rcsb.utils.citation.JournalTitleAbbreviationProvider:Processing terms in '/Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref/LTWA_20160915.txt'
+INFO:rcsb.utils.citation.JournalTitleAbbreviationProvider:Abbreviation length LTWA 39336
+ok
+testBatchFetch (testPubMedUtils.PubMedUtilsTests)
+Test batch pubmed entry fetch ... INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/2
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 2/2
+ok
+testFetchIds (testPubMedUtils.PubMedUtilsTests)
+Test individual entry fetch ... INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+ok
+testGetJournalNames (testPubMedUtils.PubMedUtilsTests)
+Test individual entry fetch ... INFO:rcsb.utils.citation.PubMedUtils:JOurnal length 32147
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 38.877s
+
+OK
+py38 run-test: commands[3] | /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/py38/bin/python -m unittest discover -v --start-directory rcsb/utils/citation --pattern 'test*.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+py38 run-test: commands[4] | /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/py38/bin/python -m unittest discover -v --start-directory rcsb/utils/citation --pattern 'test*.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+py38 run-test: commands[5] | /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/py38/bin/python -m unittest discover -v --start-directory rcsb/utils/citation --pattern 'test*.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+py38 run-test: commands[6] | echo 'Completed py38'
+Completed py38
+test_coverage-py38 recreate: /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/.tox/test_coverage-py38
+test_coverage-py38 installdeps: echo, coverage, -rrequirements.txt
+test_coverage-py38 develop-inst: /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation
+test_coverage-py38 installed: certifi==2019.9.11,cffi==1.13.2,chardet==3.0.4,coverage==4.5.4,echo==0.1,future==0.18.2,idna==2.8,mmcif==0.48,nltk==3.4.5,numpy==1.17.4,pycparser==2.19,PyNaCl==1.3.0,-e git+https://github.com/rcsb/py-rcsb_utils_citation.git@ba06a6d98cce8663768db605f2af488a6f320e98#egg=rcsb.utils.citation,rcsb.utils.config==0.24,rcsb.utils.io==0.48,rcsb.utils.validation==0.19,regex==2019.11.1,requests==2.22.0,ruamel.yaml==0.16.5,six==1.13.0,urllib3==1.25.7
+test_coverage-py38 run-test-pre: PYTHONHASHSEED='2277646767'
+test_coverage-py38 run-test: commands[0] | echo 'Starting test_coverage-py38'
+Starting test_coverage-py38
+test_coverage-py38 run-test: commands[1] | coverage erase
+test_coverage-py38 run-test: commands[2] | coverage run --parallel-mode --omit=rcsb/utils/__init__.py --source=rcsb/utils/citation,rcsb/utils/tests-citation -m unittest discover -v --start-directory rcsb/utils/tests-citation --pattern 'test*.py'
+testGetJournalAbbrevs (testCitationReferenceProvider.CitationReferenceProviderTests)
+Test get, cache and access citation reference journal abbreviations. ... INFO:rcsb.utils.citation.CitationReferenceProvider:Fetch data from source ftp://ftp.ncbi.nih.gov/pubmed/J_Medline.txt in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref
+INFO:rcsb.utils.citation.CitationReferenceProvider:Medline ISSN journal length 39412
+INFO:rcsb.utils.citation.CitationReferenceProvider:Caching 39412 Medline ISSNs in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref/medline-journals.json status True
+INFO:rcsb.utils.citation.CitationReferenceProvider:Caching 103705 CrossRef ISSNs in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref/crossref-journals.json status True
+INFO:rcsb.utils.citation.CitationReferenceProvider:Caching 15204 JabRef names in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref/crossref-journals.json status True
+INFO:rcsb.utils.citation.CitationReferenceProvider:Lengths Medline 39412 CrossRef 103705
+ok
+testGetJournalAbbrevs (testJournalTitleAbbreviationProvider.JournalTitleAbbreviationProviderTests)
+Test get, cache and access resources support journal title abbreviation methods ... [nltk_data] Downloading package wordnet to /Users/jwest/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+INFO:rcsb.utils.citation.JournalTitleAbbreviationProvider:Fetch data from source https://www.issn.org/wp-content/uploads/2013/09/LTWA_20160915.txt in /Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref
+INFO:rcsb.utils.citation.JournalTitleAbbreviationProvider:Processing terms in '/Users/jwest/MY_FILES/Developing/RCSB/py-rcsb_utils_citation/rcsb/utils/tests-citation/test-output/cit_ref/LTWA_20160915.txt'
+INFO:rcsb.utils.citation.JournalTitleAbbreviationProvider:Abbreviation length LTWA 39336
+ok
+testBatchFetch (testPubMedUtils.PubMedUtilsTests)
+Test batch pubmed entry fetch ... INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/2
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 2/2
+ok
+testFetchIds (testPubMedUtils.PubMedUtilsTests)
+Test individual entry fetch ... INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+INFO:rcsb.utils.citation.PubMedUtils:Starting fetching for sublist 1/1
+ok
+testGetJournalNames (testPubMedUtils.PubMedUtilsTests)
+Test individual entry fetch ... INFO:rcsb.utils.citation.PubMedUtils:JOurnal length 32147
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 37.424s
+
+OK
+test_coverage-py38 run-test: commands[3] | coverage run --parallel-mode --omit=rcsb/utils/__init__.py --source=rcsb/utils/citation,rcsb/utils/tests-citation -m unittest discover -v --start-directory rcsb/utils/citation --pattern 'test*.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+Coverage.py warning: No data was collected. (no-data-collected)
+test_coverage-py38 run-test: commands[4] | coverage run --parallel-mode --omit=rcsb/utils/__init__.py --source=rcsb/utils/citation,rcsb/utils/tests-citation -m unittest discover -v --start-directory rcsb/utils/citation --pattern 'test*.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+Coverage.py warning: No data was collected. (no-data-collected)
+test_coverage-py38 run-test: commands[5] | coverage run --parallel-mode --omit=rcsb/utils/__init__.py --source=rcsb/utils/citation,rcsb/utils/tests-citation -m unittest discover -v --start-directory rcsb/utils/citation --pattern 'test*.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+Coverage.py warning: No data was collected. (no-data-collected)
+test_coverage-py38 run-test: commands[6] | echo ' ------- Consolidating test_coverage-py38 data ----------'
+ ------- Consolidating test_coverage-py38 data ----------
+test_coverage-py38 run-test: commands[7] | coverage combine
+test_coverage-py38 run-test: commands[8] | echo ' ------- Building test_coverage-py38 reports ----------'
+ ------- Building test_coverage-py38 reports ----------
+test_coverage-py38 run-test: commands[9] | coverage report --fail-under=50
+Name                                                                Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------------------------------------
+rcsb/utils/citation/__init__.py                                         5      0      0      0   100%
+rcsb/utils/tests-citation/__init__.py                                   0      0      0      0   100%
+rcsb/utils/citation/PubMedReader.py                                    58      6     18      1    91%   18-19, 135-136, 167-168, 38->35
+rcsb/utils/tests-citation/testCitationReferenceProvider.py             37      8      2      1    77%   59-61, 65-67, 72-73, 70->72
+rcsb/utils/tests-citation/testJournalTitleAbbreviationProvider.py      36      8      2      1    76%   55-57, 61-63, 68-69, 66->68
+rcsb/utils/citation/PubMedUtils.py                                     96     13     32      4    85%   19-21, 60, 81, 84-85, 90-92, 142-143, 154, 175, 59->60, 74->81, 76->78, 153->154
+rcsb/utils/citation/CitationReferenceProvider.py                      136     28     38      4    82%   37-38, 45-46, 53-54, 58-63, 66-71, 78, 95-96, 99-101, 127-128, 141-142, 76->78, 91->98, 98->99, 123->122
+rcsb/utils/tests-citation/testPubMedUtils.py                           73     28     14      4    59%   529-533, 546-551, 562-565, 568-571, 575-578, 582-584, 589-593, 528->529, 545->546, 561->562, 587->589
+rcsb/utils/citation/JournalTitleAbbreviationProvider.py               240     64    127     19    70%   168-170, 200-201, 204-205, 236, 256-263, 266-274, 278-286, 290-298, 300, 316-317, 322-323, 356, 361, 387, 415-417, 426, 434, 443-445, 450-456, 465-466, 166->170, 196->203, 203->204, 235->236, 255->256, 264->266, 276->278, 288->290, 299->300, 306->312, 315->316, 321->322, 355->356, 357->361, 386->387, 388->390, 425->426, 432->434, 449->450
+---------------------------------------------------------------------------------------------------------------
+TOTAL                                                                 681    155    233     34    76%
+test_coverage-py38 run-test: commands[10] | - coverage xml
+test_coverage-py38 run-test: commands[11] | echo 'Completed test_coverage-py38'
+Completed test_coverage-py38
+___________________________________ summary ____________________________________
+  format_pep8-py38: commands succeeded
+  lint_pylint-py38: commands succeeded
+  format_black-py38: commands succeeded
+  py38: commands succeeded
+  test_coverage-py38: commands succeeded
+  congratulations :)

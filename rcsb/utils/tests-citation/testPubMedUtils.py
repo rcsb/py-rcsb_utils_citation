@@ -32,10 +32,6 @@ class PubMedUtilsTests(unittest.TestCase):
     def setUp(self):
         self.__export = False
         self.__mU = MarshalUtil()
-        self.__dirPath = os.path.join(TOPDIR, "rcsb", "mock-data")
-        #
-        self.__journalNamePath = os.path.join(self.__dirPath, "citation", "J_Medline.txt")
-        #
         self.__workPath = os.path.join(HERE, "test-output")
         #
         self.__pidList1 = ["21540484", "15192106", "17110339", "11294653", "21719702", "29519914", "18976664", "12493825", "24794573"]
@@ -518,19 +514,6 @@ class PubMedUtilsTests(unittest.TestCase):
 
     def tearDown(self):
         pass
-
-    def testGetJournalNames(self):
-        """ Test individual entry fetch
-        """
-        try:
-            fobj = PubMedUtils(saveText=True)
-            jL = fobj.getJournalIndex(filePath=self.__journalNamePath)
-            if jL and self.__export:
-                self.__mU.doExport(os.path.join(self.__workPath, "journal-nanes.json"), jL, format="json", indent=3)
-                #
-        except Exception as e:
-            logger.exception("Failing with %s", str(e))
-            self.fail()
 
     def testFetchIds(self):
         """ Test individual entry fetch

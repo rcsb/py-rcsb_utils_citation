@@ -161,9 +161,12 @@ class JournalTitleAbbreviationProvider(object):
 
     def testCache(self):
         # Lengths ...
-        logger.info("Lengths LTWA %d", len(self.__abbrevD))
-        if len(self.__abbrevD) == 4 and len(self.__abbrevD["full"]) > 39000 and len(self.__multiWordTermList) > 250:
-            return True
+        try:
+            logger.info("Abbreviation length LTWA %d", len(self.__abbrevD["full"]))
+            if len(self.__abbrevD) == 4 and len(self.__abbrevD["full"]) > 39000 and len(self.__multiWordTermList) > 250:
+                return True
+        except Exception:
+            pass
         return False
 
     def __rebuildCache(self, urlTargetIsoLtwa, cachePath, useCache):
@@ -208,8 +211,8 @@ class JournalTitleAbbreviationProvider(object):
             ok = fU.get(urlTargetIsoLtwa, fp)
             aD = self.__getLtwaTerms(cachePath, fp)
             ok = mU.doExport(isoLtwaNamePath, aD, fmt=fmt)
-            logger.info("abbrevD keys %r", list(aD.keys()))
-            logger.info("Caching %d ISO LTWA in %s status %r", len(aD["abbrev"]), isoLtwaNamePath, ok)
+            logger.debug("abbrevD keys %r", list(aD.keys()))
+            logger.debug("Caching %d ISO LTWA in %s status %r", len(aD["abbrev"]), isoLtwaNamePath, ok)
         #
         abbrevD = aD["abbrev"] if "abbrev" in aD else {}
         conflictD = aD["conflicts"] if "conflicts" in aD else {}
@@ -399,7 +402,7 @@ class JournalTitleAbbreviationProvider(object):
         mU = MarshalUtil(workPath=cachePath)
         try:
             tsv = mU.doImport(isoLtwaNamePath, fmt="tdd", rowFormat="list", encoding="utf-16-le")
-            logger.info("Read isoLtwaNamePath %s record count %d", isoLtwaNamePath, len(tsv))
+            logger.debug("Read isoLtwaNamePath %s record count %d", isoLtwaNamePath, len(tsv))
             conflictWords = set()
             for line in tsv:
                 try:
@@ -455,9 +458,9 @@ class JournalTitleAbbreviationProvider(object):
             #
             abbrevD = {"abbrev": titleWordAbbrevD, "conflicts": conflictD, "multi_word_abbrev": multiWordTermL}
             for ky in abbrevD["abbrev"]:
-                logger.info("abbreviation type %r length %r", ky, len(abbrevD["abbrev"][ky]))
+                logger.debug("abbreviation type %r length %r", ky, len(abbrevD["abbrev"][ky]))
             for ky in abbrevD:
-                logger.info("Content type %r length %r", ky, len(abbrevD[ky]))
+                logger.debug("Content type %r length %r", ky, len(abbrevD[ky]))
             #
         except Exception as e:
             logger.exception("Failing reading %s with %s", isoLtwaNamePath, str(e))

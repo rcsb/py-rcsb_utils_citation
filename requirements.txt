@@ -1,4 +1,4 @@
-rcsb.utils.io >= 0.47
+rcsb.utils.io >= 0.48
 rcsb.utils.config >= 0.24
-nltk>=3.2.5
-regex>=2019.11.1
+nltk >= 3.2.5
+regex >= 2019.11.1
