@@ -24,11 +24,10 @@ class CitationReferenceProvider(object):
     def __init__(self, **kwargs):
         urlTargetCrossRef = kwargs.get("urlTargetCrossRef", "http://ftp.crossref.org/titlelist/titleFile.csv")
         urlTargetMedline = kwargs.get("urlTargetMedline", "ftp://ftp.ncbi.nih.gov/pubmed/J_Medline.txt")
-        urlTargetJabRef = kwargs.get("urlTargetJabRef", "https://raw.githubusercontent.com/JabRef/jabref/master/src/main/resources/journals/journalList.csv")
         cachePath = kwargs.get("cachePath", ".")
         useCache = kwargs.get("useCache", True)
         #
-        self.__mlIssnD, self.__crIssnD, self.__jrD = self.__rebuildCache(urlTargetMedline, urlTargetCrossRef, urlTargetJabRef, cachePath, useCache)
+        self.__mlIssnD, self.__crIssnD = self.__rebuildCache(urlTargetMedline, urlTargetCrossRef, cachePath, useCache)
 
     def getMedlineJournalIsoAbbreviation(self, issn):
         jAbbrev = None
@@ -62,14 +61,6 @@ class CitationReferenceProvider(object):
             pass
         return jT
 
-    def getJournalAbbreviation(self, title):
-        jAbbrev = None
-        try:
-            jAbbrev = self.__jrD[title]
-        except Exception:
-            pass
-        return jAbbrev
-
     def testCache(self):
         # Lengths ...
         logger.info("Lengths Medline %d CrossRef %d", len(self.__mlIssnD), len(self.__crIssnD))
@@ -78,13 +69,12 @@ class CitationReferenceProvider(object):
         return False
 
     #
-    def __rebuildCache(self, urlTargetMedline, urlTargetCrossRef, urlTargetJabRef, cachePath, useCache):
+    def __rebuildCache(self, urlTargetMedline, urlTargetCrossRef, cachePath, useCache):
         mU = MarshalUtil(workPath=cachePath)
         fmt = "json"
         ext = fmt if fmt == "json" else "pic"
         medlineNamePath = os.path.join(cachePath, "medline-journals.%s" % ext)
         crossRefNamePath = os.path.join(cachePath, "crossref-journals.%s" % ext)
-        jabRefNamePath = os.path.join(cachePath, "jabref-journals.%s" % ext)
         #
         logger.debug("Using cache data path %s", cachePath)
         mU.mkdir(cachePath)
@@ -96,8 +86,8 @@ class CitationReferenceProvider(object):
                     pass
         #
         if useCache and mU.exists(medlineNamePath) and mU.exists(crossRefNamePath):
-            mlD = mU.doImport(medlineNamePath, fmt="pickle")
-            crD = mU.doImport(crossRefNamePath, fmt="pickle")
+            mlD = mU.doImport(medlineNamePath, fmt=fmt)
+            crD = mU.doImport(crossRefNamePath, fmt=fmt)
             logger.debug("Citation medline name length %d  CrossRef length %d", len(mlD), len(crD))
         else:
             # ------
@@ -129,21 +119,8 @@ class CitationReferenceProvider(object):
             ok = mU.doExport(crossRefNamePath, crD, fmt=fmt)
             logger.info("Caching %d CrossRef ISSNs in %s status %r", len(crD), crossRefNamePath, ok)
             # ------
-            # Titles and abbreviations  -
-            #  https://raw.githubusercontent.com/JabRef/jabref/master/src/main/resources/journals/journalList.txt
-            fp = os.path.join(cachePath, fU.getFileName(urlTargetJabRef))
-            ok = fU.get(urlTargetJabRef, fp)
-            jrD = {}
-            try:
-                rowL = mU.doImport(fp, fmt="csv", rowFormat="list", csvDelimiter=";")
-                for row in rowL:
-                    jrD[row[0]] = row[1]
-            except Exception as e:
-                logger.exception("Failing processing %s in %s with %s", urlTargetJabRef, fp, str(e))
-            ok = mU.doExport(jabRefNamePath, jrD, fmt=fmt)
-            logger.info("Caching %d JabRef names in %s status %r", len(jrD), crossRefNamePath, ok)
         #
-        return mlD, crD, jrD
+        return mlD, crD
 
     def __getMedlineJournalIndex(self, filePath):
         """ Parse Medline journal reference data and return a dictionary by ISSN
