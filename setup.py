@@ -8,6 +8,17 @@ import re
 
 from setuptools import find_packages
 from setuptools import setup
+from setuptools.command.install import install as _install
+
+
+class Install(_install):
+    def run(self):
+        # _install.do_egg_install(self)
+        import nltk  # pylint: disable=import-outside-toplevel
+
+        # nltk.download("all")
+        nltk.download("popular")
+
 
 packages = []
 thisPackage = "rcsb.utils.citation"
@@ -41,7 +52,9 @@ setup(
     ),
     entry_points={"console_scripts": []},
     #
-    install_requires=["rcsb.utils.io >= 0.48", "rcsb.utils.config >= 0.24", "nltk >= 3.2.5", "regex >= 2019.11.1"],
+    cmdclass={"install": Install},
+    install_requires=["rcsb.utils.io >= 0.52", "rcsb.utils.config >= 0.30", "nltk >= 3.2.5", "regex >= 2019.11.1"],
+    setup_requires=["nltk"],
     packages=find_packages(exclude=["rcsb.mock-data", "rcsb.utils.tests-citation", "rcsb.utils.tests-*", "tests.*"]),
     package_data={
         # If any package contains *.md or *.rst ...  files, include them:
