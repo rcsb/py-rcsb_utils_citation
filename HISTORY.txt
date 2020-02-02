@@ -4,4 +4,4 @@
   25-Jun-2019  - V0.11 Updated development workflows
   21-Nov-2019  - V0.12 Add journal reference data and journal title abbreviation support
   22-Nov-2019  - V0.13 Add formatting options for cached citation reference files and discard JabRef ref data
-   2-Feb-2020  - V0.14 Add nltk data download to setup.py.
+   2-Feb-2020  - V0.14 Add nltk data download to setup.py and then backed it out.
