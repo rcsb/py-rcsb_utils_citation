@@ -53,7 +53,7 @@ setup(
     entry_points={"console_scripts": []},
     #
     # cmdclass={"install": Install},
-    install_requires=["rcsb.utils.io >= 0.52", "rcsb.utils.config >= 0.30", "nltk >= 3.2.5", "regex >= 2019.11.1"],
+    install_requires=["rcsb.utils.io >= 0.53", "nltk >= 3.2.5", "regex >= 2019.11.1"],
     # setup_requires=["nltk"],
     packages=find_packages(exclude=["rcsb.mock-data", "rcsb.utils.tests-citation", "rcsb.utils.tests-*", "tests.*"]),
     package_data={
