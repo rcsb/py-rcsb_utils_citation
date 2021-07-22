@@ -308,7 +308,7 @@ ignored-argument-names=_.*|^ignored_|^unused_
 init-import=no
 
 # List of qualified module names which can have objects that can redefine
-# builtins.
+# built-ins.
 redefining-builtins-modules=six.moves,past.builtins,future.builtins,builtins,io
 
 

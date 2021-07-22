@@ -28,15 +28,14 @@ logger = logging.getLogger()
 class JournalTitleAbbreviationProviderTests(unittest.TestCase):
     def setUp(self):
         self.__export = False
-        self.__cachePath = os.path.join(HERE, "test-output", "cit_ref")
+        self.__cachePath = os.path.join(HERE, "test-output", "CACHE")
         nltk.download("wordnet")
 
     def tearDown(self):
         pass
 
     def testGetJournalAbbrevs(self):
-        """ Test get, cache and access resources support journal title abbreviation methods
-        """
+        """Test get, cache and access resources support journal title abbreviation methods"""
         try:
             crP = JournalTitleAbbreviationProvider(cachePath=self.__cachePath, useCache=False)
             ok = crP.testCache()

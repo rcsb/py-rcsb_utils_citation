@@ -30,14 +30,13 @@ logger = logging.getLogger()
 class CitationReferenceProviderTests(unittest.TestCase):
     def setUp(self):
         self.__export = False
-        self.__cachePath = os.path.join(HERE, "test-output", "cit_ref")
+        self.__cachePath = os.path.join(HERE, "test-output", "CACHE")
 
     def tearDown(self):
         pass
 
     def testGetJournalAbbrevs(self):
-        """ Test get, cache and access citation reference journal abbreviations.
-        """
+        """Test get, cache and access citation reference journal abbreviations."""
         try:
             crP = CitationReferenceProvider(cachePath=self.__cachePath, useCache=False)
             ok = crP.testCache()

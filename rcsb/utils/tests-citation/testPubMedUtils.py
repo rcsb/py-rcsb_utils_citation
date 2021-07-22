@@ -516,8 +516,7 @@ class PubMedUtilsTests(unittest.TestCase):
         pass
 
     def testFetchIds(self):
-        """ Test individual entry fetch
-        """
+        """Test individual entry fetch"""
         try:
             fobj = PubMedUtils(saveText=True)
             for tId in self.__pidList1:
@@ -534,8 +533,7 @@ class PubMedUtilsTests(unittest.TestCase):
             self.fail()
 
     def testBatchFetch(self):
-        """ Test batch pubmed entry fetch
-        """
+        """Test batch pubmed entry fetch"""
         try:
             fobj = PubMedUtils(saveText=False)
             idList = list(set(self.__pidList2))

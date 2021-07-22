@@ -26,6 +26,14 @@ thisPackage = "rcsb.utils.citation"
 with open("rcsb/utils/citation/__init__.py", "r") as fd:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', fd.read(), re.MULTILINE).group(1)
 
+
+# Load packages from requirements*.txt
+with open("requirements.txt", "r") as ifh:
+    packagesRequired = [ln.strip() for ln in ifh.readlines()]
+
+with open("README.md", "r") as ifh:
+    longDescription = ifh.read()
+
 if not version:
     raise RuntimeError("Cannot find version information")
 
@@ -33,7 +41,8 @@ setup(
     name=thisPackage,
     version=version,
     description="RCSB Python utility classes to manage PDB citation data",
-    long_description="See:  README.md",
+    long_description_content_type="text/markdown",
+    long_description=longDescription,
     author="John Westbrook",
     author_email="john.westbrook@rcsb.org",
     url="https://github.com/rcsb/py-rcsb_utils_citation",
@@ -53,7 +62,7 @@ setup(
     entry_points={"console_scripts": []},
     #
     # cmdclass={"install": Install},
-    install_requires=["rcsb.utils.io >= 0.53", "nltk >= 3.2.5", "regex >= 2019.11.1"],
+    install_requires=packagesRequired,
     # setup_requires=["nltk"],
     packages=find_packages(exclude=["rcsb.mock-data", "rcsb.utils.tests-citation", "rcsb.utils.tests-*", "tests.*"]),
     package_data={

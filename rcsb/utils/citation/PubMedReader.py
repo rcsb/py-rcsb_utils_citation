@@ -22,8 +22,7 @@ logger = logging.getLogger(__name__)
 
 
 class PubMedReader(object):
-    """ Limited parser for PubMed XML entry data.
-    """
+    """Limited parser for PubMed XML entry data."""
 
     def __init__(self):
         self.__ns = ""
@@ -65,13 +64,13 @@ class PubMedReader(object):
 
     def __processData(self, el):
         """
-         <PubmedData>
-         <ArticleIdList>
-                <ArticleId IdType="pubmed">21540484</ArticleId>
-                <ArticleId IdType="pii">M111.221069</ArticleId>
-                <ArticleId IdType="doi">10.1074/jbc.M111.221069</ArticleId>
-                <ArticleId IdType="pmc">PMC3123100</ArticleId>
-                ...
+        <PubmedData>
+        <ArticleIdList>
+               <ArticleId IdType="pubmed">21540484</ArticleId>
+               <ArticleId IdType="pii">M111.221069</ArticleId>
+               <ArticleId IdType="doi">10.1074/jbc.M111.221069</ArticleId>
+               <ArticleId IdType="pmc">PMC3123100</ArticleId>
+               ...
         """
         doc = {}
         for ael in el.findall("{ns}ArticleIdList/{ns}ArticleId".format(ns=self.__ns)):
@@ -139,24 +138,24 @@ class PubMedReader(object):
 
     def __processChemicals(self, el):
         """
-         <ChemicalList>
-                <Chemical>
-                    <RegistryNumber>0</RegistryNumber>
-                    <NameOfSubstance UI="D003067">Coenzymes</NameOfSubstance>
-                </Chemical>
-                <Chemical>
-                    <RegistryNumber>53-59-8</RegistryNumber>
-                    <NameOfSubstance UI="D009249">NADP</NameOfSubstance>
-                </Chemical>
-                <Chemical>
-                    <RegistryNumber>EC 1.2.1.3</RegistryNumber>
-                    <NameOfSubstance UI="D000444">Aldehyde Dehydrogenase</NameOfSubstance>
-                </Chemical>
-                <Chemical>
-                    <RegistryNumber>EC 1.5.1.6</RegistryNumber>
-                    <NameOfSubstance UI="C534194">ALDH1L1 protein, human</NameOfSubstance>
-                </Chemical>
-            </ChemicalList>
+        <ChemicalList>
+               <Chemical>
+                   <RegistryNumber>0</RegistryNumber>
+                   <NameOfSubstance UI="D003067">Coenzymes</NameOfSubstance>
+               </Chemical>
+               <Chemical>
+                   <RegistryNumber>53-59-8</RegistryNumber>
+                   <NameOfSubstance UI="D009249">NADP</NameOfSubstance>
+               </Chemical>
+               <Chemical>
+                   <RegistryNumber>EC 1.2.1.3</RegistryNumber>
+                   <NameOfSubstance UI="D000444">Aldehyde Dehydrogenase</NameOfSubstance>
+               </Chemical>
+               <Chemical>
+                   <RegistryNumber>EC 1.5.1.6</RegistryNumber>
+                   <NameOfSubstance UI="C534194">ALDH1L1 protein, human</NameOfSubstance>
+               </Chemical>
+           </ChemicalList>
         """
         rL = []
         try:

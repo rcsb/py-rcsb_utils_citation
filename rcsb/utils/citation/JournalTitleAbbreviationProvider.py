@@ -15,37 +15,41 @@ from nltk.stem.wordnet import WordNetLemmatizer
 
 from rcsb.utils.io.FileUtil import FileUtil
 from rcsb.utils.io.MarshalUtil import MarshalUtil
+from rcsb.utils.io.StashableBase import StashableBase
 
 logger = logging.getLogger(__name__)
 
 
-class JournalTitleAbbreviationProvider(object):
-    """ Manage resources required to support journal title abbreviation assignment
-        using ISO LTWA abbreviations at:
+class JournalTitleAbbreviationProvider(StashableBase):
+    """Manage resources required to support journal title abbreviation assignment
+    using ISO LTWA abbreviations at:
 
-          https://www.issn.org/services/online-services/access-to-the-ltwa/
+      https://www.issn.org/services/online-services/access-to-the-ltwa/
 
-        Portions of this module have been adapted from the approach developed
-        in https://github.com/adlpr/iso4.git with the following license:
+    Portions of this module have been adapted from the approach developed
+    in https://github.com/adlpr/iso4.git with the following license:
 
-            MIT License
+        MIT License
 
-            Copyright (c) 2018 Alex DelPriore
+        Copyright (c) 2018 Alex DelPriore
 
-            Permission is hereby granted, free of charge, to any person obtaining a copy
-            of this software and associated documentation files (the "Software"), to deal
-            in the Software without restriction, including without limitation the rights
-            to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-            copies of the Software, and to permit persons to whom the Software is
-            furnished to do so, subject to the following conditions:
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
 
-            The above copyright notice and this permission notice shall be included in all
-            copies or substantial portions of the Software.
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
     """
 
     def __init__(self, **kwargs):
-        urlTargetIsoLtwa = kwargs.get("urlTargetLtwa", "https://www.issn.org/wp-content/uploads/2013/09/LTWA_20160915.txt")
+        dirName = "journal-abbreviations"
         cachePath = kwargs.get("cachePath", ".")
+        super(JournalTitleAbbreviationProvider, self).__init__(cachePath, [dirName])
+        urlTargetIsoLtwa = kwargs.get("urlTargetLtwa", "https://www.issn.org/wp-content/uploads/2013/09/LTWA_20160915.txt")
+        dirPath = os.path.join(cachePath, dirName)
         useCache = kwargs.get("useCache", True)
         #
         self.__noAbbrevPlaceHolder = "n.a."
@@ -155,7 +159,7 @@ class JournalTitleAbbreviationProvider(object):
                 "og",
             ]
         )
-        self.__abbrevD, self.__conflictD, self.__multiWordTermList = self.__rebuildCache(urlTargetIsoLtwa, cachePath, useCache)
+        self.__abbrevD, self.__conflictD, self.__multiWordTermList = self.__rebuildCache(urlTargetIsoLtwa, dirPath, useCache)
         # Token a string space boundaries respecting a special list of multi-word strings -
         self.__tokenizerRegex = re.compile("({}|\\s+)".format("|".join(["(?:^|\\s){}(?:\\s|$)".format(w) for w in self.__multiWordTermList])), flags=re.I)
 
@@ -169,12 +173,12 @@ class JournalTitleAbbreviationProvider(object):
             pass
         return False
 
-    def __rebuildCache(self, urlTargetIsoLtwa, cachePath, useCache):
-        """ Rebuild the cache of ISO abbreviation term data
+    def __rebuildCache(self, urlTargetIsoLtwa, dirPath, useCache):
+        """Rebuild the cache of ISO abbreviation term data
 
         Args:
             urlTargetIsoLtwa (str): URL for ISO4 LTWA title word abbreviations
-            cachePath (str):  cache path
+            dirPath (str):  cache path
             useCache (bool):  flag to use cached files
 
         Returns:
@@ -187,12 +191,12 @@ class JournalTitleAbbreviationProvider(object):
             https://www.issn.org/wp-content/uploads/2013/09/LTWA_20160915.txt
         """
         aD = {}
-        mU = MarshalUtil(workPath=cachePath)
+        mU = MarshalUtil(workPath=dirPath)
         fmt = "json"
         ext = fmt if fmt == "json" else "pic"
-        isoLtwaNamePath = os.path.join(cachePath, "iso-ltwa.%s" % ext)
-        logger.debug("Using cache data path %s", cachePath)
-        mU.mkdir(cachePath)
+        isoLtwaNamePath = os.path.join(dirPath, "iso-ltwa.%s" % ext)
+        logger.debug("Using cache data path %s", dirPath)
+        mU.mkdir(dirPath)
         if not useCache:
             for fp in [isoLtwaNamePath]:
                 try:
@@ -203,13 +207,13 @@ class JournalTitleAbbreviationProvider(object):
         if useCache and mU.exists(isoLtwaNamePath):
             aD = mU.doImport(isoLtwaNamePath, fmt=fmt)
             logger.debug("Abbreviation name length %d", len(aD["abbrev"]))
-        else:
+        elif not useCache:
             # ------
             fU = FileUtil()
-            logger.info("Fetch data from source %s in %s", urlTargetIsoLtwa, cachePath)
-            fp = os.path.join(cachePath, fU.getFileName(urlTargetIsoLtwa))
+            logger.info("Fetch data from source %s in %s", urlTargetIsoLtwa, dirPath)
+            fp = os.path.join(dirPath, fU.getFileName(urlTargetIsoLtwa))
             ok = fU.get(urlTargetIsoLtwa, fp)
-            aD = self.__getLtwaTerms(cachePath, fp)
+            aD = self.__getLtwaTerms(dirPath, fp)
             ok = mU.doExport(isoLtwaNamePath, aD, fmt=fmt)
             logger.debug("abbrevD keys %r", list(aD.keys()))
             logger.debug("Caching %d ISO LTWA in %s status %r", len(aD["abbrev"]), isoLtwaNamePath, ok)
@@ -334,8 +338,7 @@ class JournalTitleAbbreviationProvider(object):
         return unicodedata.normalize("NFKC", " ".join(retWordList))
 
     def __getType(self, word):
-        """ Classify the input word base on internal punctuation.
-        """
+        """Classify the input word base on internal punctuation."""
         if word.startswith("-"):
             return self.__infixKey if word.endswith("-") else self.__suffixKey
         elif word.endswith("-"):
@@ -361,8 +364,7 @@ class JournalTitleAbbreviationProvider(object):
             return self.__lowercaseFlag
 
     def __normalizeWord(self, word):
-        """Strip hyphens, other punctuation, lower, normalize NFKD.
-        """
+        """Strip hyphens, other punctuation, lower, normalize NFKD."""
         parts = []
         for part in word.split(" "):
             part = re.sub(r"(^\-|\p{P}+$)", "", part).strip()
@@ -379,8 +381,7 @@ class JournalTitleAbbreviationProvider(object):
         return " ".join(parts)
 
     def __finalizeOutput(self, word, capitalization, usePunctuation):
-        """Modify output word according to capitalization and punctuation preferences.
-        """
+        """Modify output word according to capitalization and punctuation preferences."""
         parts = []
         for part in word.split(" "):
             if capitalization == self.__uppercaseFlag:
@@ -392,14 +393,14 @@ class JournalTitleAbbreviationProvider(object):
             parts.append(part)
         return " ".join(parts)
 
-    def __getLtwaTerms(self, cachePath, isoLtwaNamePath):
+    def __getLtwaTerms(self, dirPath, isoLtwaNamePath):
         logger.info("Processing terms in %r", isoLtwaNamePath)
         titleWordAbbrevD = {}
         conflictD = {}
         multiWordTermL = []
         abbrevD = {"abbrev": titleWordAbbrevD, "conflicts": conflictD, "multi_word_abbrev": multiWordTermL}
         #
-        mU = MarshalUtil(workPath=cachePath)
+        mU = MarshalUtil(workPath=dirPath)
         try:
             tsv = mU.doImport(isoLtwaNamePath, fmt="tdd", rowFormat="list", encoding="utf-16-le")
             logger.debug("Read isoLtwaNamePath %s record count %d", isoLtwaNamePath, len(tsv))

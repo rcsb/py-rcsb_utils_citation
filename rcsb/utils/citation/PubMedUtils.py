@@ -38,12 +38,12 @@ class PubMedUtils(object):
         #
 
     def fetchList(self, idList, maxChunkSize=200):
-        """     Execute a fetch query for the input id list.
+        """Execute a fetch query for the input id list.
 
-                Divide the input list into manageable chunks, fetch each chunk,
-                and concatenate the result.
+        Divide the input list into manageable chunks, fetch each chunk,
+        and concatenate the result.
 
-                Return dict: dictionary of parsed PubMed features
+        Return dict: dictionary of parsed PubMed features
 
         """
         try:
@@ -157,7 +157,7 @@ class PubMedUtils(object):
 
     def __doRequestPrimary(self, idList):
         """
-              http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&retmode=xml&id=ID1,ID2,...
+        http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&retmode=xml&id=ID1,ID2,...
         """
         baseUrl = "http://eutils.ncbi.nlm.nih.gov"
         endPoint = "entrez/eutils/efetch.fcgi"

@@ -2,6 +2,8 @@
 # File:    CitationReferenceProvider.py
 # Date:    19-Nov-2019
 #
+# Updates:
+# 21-Jul-2021 jdw  Make this provider a subclass of StashableBase
 ##
 
 import copy
@@ -10,24 +12,29 @@ import os
 
 from rcsb.utils.io.FileUtil import FileUtil
 from rcsb.utils.io.MarshalUtil import MarshalUtil
+from rcsb.utils.io.StashableBase import StashableBase
 
 logger = logging.getLogger(__name__)
 
 
-class CitationReferenceProvider(object):
-    """ Manage citation reference data access including resource files containing
+class CitationReferenceProvider(StashableBase):
+    """Manage citation reference data access including resource files containing
     mapping between Journal names and ISSN/EISSN identifiers.  Provide accessors
     for searching these mappings.
 
     """
 
     def __init__(self, **kwargs):
+        dirName = "citation-reference"
+        cachePath = kwargs.get("cachePath", ".")
+        super(CitationReferenceProvider, self).__init__(cachePath, [dirName])
+
         urlTargetCrossRef = kwargs.get("urlTargetCrossRef", "http://ftp.crossref.org/titlelist/titleFile.csv")
         urlTargetMedline = kwargs.get("urlTargetMedline", "ftp://ftp.ncbi.nih.gov/pubmed/J_Medline.txt")
-        cachePath = kwargs.get("cachePath", ".")
+        dirPath = os.path.join(cachePath, dirName)
         useCache = kwargs.get("useCache", True)
         #
-        self.__mlIssnD, self.__crIssnD = self.__rebuildCache(urlTargetMedline, urlTargetCrossRef, cachePath, useCache)
+        self.__mlIssnD, self.__crIssnD = self.__rebuildCache(urlTargetMedline, urlTargetCrossRef, dirPath, useCache)
 
     def getMedlineJournalIsoAbbreviation(self, issn):
         jAbbrev = None
@@ -70,6 +77,8 @@ class CitationReferenceProvider(object):
 
     #
     def __rebuildCache(self, urlTargetMedline, urlTargetCrossRef, cachePath, useCache):
+        mlD = {}
+        crD = {}
         mU = MarshalUtil(workPath=cachePath)
         fmt = "json"
         ext = fmt if fmt == "json" else "pic"
@@ -89,7 +98,7 @@ class CitationReferenceProvider(object):
             mlD = mU.doImport(medlineNamePath, fmt=fmt)
             crD = mU.doImport(crossRefNamePath, fmt=fmt)
             logger.debug("Citation medline name length %d  CrossRef length %d", len(mlD), len(crD))
-        else:
+        elif not useCache:
             # ------
             fU = FileUtil()
             logger.info("Fetch data from source %s in %s", urlTargetMedline, cachePath)
@@ -123,7 +132,7 @@ class CitationReferenceProvider(object):
         return mlD, crD
 
     def __getMedlineJournalIndex(self, filePath):
-        """ Parse Medline journal reference data and return a dictionary by ISSN
+        """Parse Medline journal reference data and return a dictionary by ISSN
 
         Data from:
             ftp://ftp.ncbi.nih.gov/pubmed/J_Medline.txt
