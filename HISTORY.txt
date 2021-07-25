@@ -6,3 +6,4 @@
   22-Nov-2019  - V0.13 Add formatting options for cached citation reference files and discard JabRef ref data
    2-Feb-2020  - V0.14 Add nltk data download to setup.py and then backed it out.
    3-Feb-2020  - V0.15 Update dependencies
+  24-Jul-2021  - V0.16 Make provider methods subclasses of StashableBase
