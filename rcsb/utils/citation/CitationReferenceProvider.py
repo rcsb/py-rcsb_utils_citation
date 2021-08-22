@@ -151,7 +151,7 @@ class CitationReferenceProvider(StashableBase):
         """
         issnD = {}
         dD = {}
-        with open(filePath, "r") as ifh:
+        with open(filePath, "r", encoding="utf-8") as ifh:
             for line in ifh:
                 if "----" in line and "journal_title" in dD:
                     logger.debug("line %r: %r", line, dD)

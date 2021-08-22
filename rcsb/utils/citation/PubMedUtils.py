@@ -87,7 +87,7 @@ class PubMedUtils(object):
         return resultD
 
     def writeUnpXml(self, filePath):
-        with open(filePath, "w") as ofh:
+        with open(filePath, "w", encoding="utf-8") as ofh:
             for data in self.__dataList:
                 ofh.write(data)
 
@@ -108,7 +108,7 @@ class PubMedUtils(object):
         """
         rL = []
         dD = {}
-        with open(filePath, "r") as ifh:
+        with open(filePath, "r", encoding="utf-8") as ifh:
             for line in ifh:
                 if "----" in line and "journal_title" in dD:
                     logger.debug("line %r: %r", line, dD)
