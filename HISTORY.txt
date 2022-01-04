@@ -7,3 +7,4 @@
    2-Feb-2020  - V0.14 Add nltk data download to setup.py and then backed it out.
    3-Feb-2020  - V0.15 Update dependencies
   24-Jul-2021  - V0.16 Make provider methods subclasses of StashableBase
+   4-Jan-2022  - V0.17 Add omw-1.4 to NLTK downloads in test case
