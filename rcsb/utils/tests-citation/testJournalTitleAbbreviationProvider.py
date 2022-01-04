@@ -30,6 +30,7 @@ class JournalTitleAbbreviationProviderTests(unittest.TestCase):
         self.__export = False
         self.__cachePath = os.path.join(HERE, "test-output", "CACHE")
         nltk.download("wordnet")
+        nltk.download("omw-1.4")
 
     def tearDown(self):
         pass
