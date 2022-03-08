@@ -1,3 +1,4 @@
 rcsb.utils.io >= 1.15
 nltk >= 3.2.5
-regex >= 2019.11.1
+# Restrict to <2022.3.2 until pylint issue is resolved (https://github.com/PyCQA/pylint/issues/5873)
+regex >= 2019.11.1,<2022.3.2
