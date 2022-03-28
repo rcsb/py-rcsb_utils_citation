@@ -9,3 +9,4 @@
   24-Jul-2021  - V0.16 Make provider methods subclasses of StashableBase
    4-Jan-2022  - V0.17 Add omw-1.4 to NLTK downloads in test case
    7-Mar-2022  - V0.18 Update dependencies
+  28-Mar-2022  - V0.19 Resolve pylint issues
