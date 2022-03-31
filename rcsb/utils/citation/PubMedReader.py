@@ -4,7 +4,8 @@
 # Date:    27-Apr-2019
 # Version: 0.001
 #
-# Update:
+# Updates:
+#  28-Mar-2022  dwp remove deprecated xml.etree.cElementTree module
 #
 ##
 """
@@ -12,11 +13,7 @@ Various utilities for extracting data from PubMed citations and related referenc
 
 """
 import logging
-
-try:
-    import xml.etree.cElementTree as ET
-except ImportError:
-    import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET
 
 logger = logging.getLogger(__name__)
 
