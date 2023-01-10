@@ -11,3 +11,4 @@
    7-Mar-2022  - V0.18 Update dependencies
   28-Mar-2022  - V0.19 Resolve pylint issues
   04-Aug-2022  - V0.20 Upgrade macOS version for Azure and tox tasks
+   9-Jan-2023  - V0.21 Configuration changes to support tox 4
