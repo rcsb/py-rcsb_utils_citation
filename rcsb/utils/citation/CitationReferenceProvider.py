@@ -30,7 +30,7 @@ class CitationReferenceProvider(StashableBase):
         super(CitationReferenceProvider, self).__init__(cachePath, [dirName])
 
         urlTargetCrossRef = kwargs.get("urlTargetCrossRef", "http://ftp.crossref.org/titlelist/titleFile.csv")
-        urlTargetMedline = kwargs.get("urlTargetMedline", "ftp://ftp.ncbi.nih.gov/pubmed/J_Medline.txt")
+        urlTargetMedline = kwargs.get("urlTargetMedline", "https://ftp.ncbi.nlm.nih.gov/pubmed/J_Medline.txt")
         dirPath = os.path.join(cachePath, dirName)
         useCache = kwargs.get("useCache", True)
         #
