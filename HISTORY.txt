@@ -14,3 +14,4 @@
    9-Jan-2023  - V0.21 Configuration changes to support tox 4
    8-Mar-2024  - V0.22 Update PubMed journal list URL
    1-Jul-2024  - V0.23 Update package version with latest setuptools
+   9-Dec-2024  - V0.24 Update Azure pipelines to use latest macOS, Ubuntu, and python 3.10
