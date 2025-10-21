@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rcsb.utils.citation"
+description = "RCSB Python Wrapper Module for Citation Utilities"
+readme = "README.md"
+authors = [
+    { name="John Westbrook", email="john.westbrook@rcsb.org" }
+]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "rcsb.utils.io>=1.15",
+    "nltk>=3.2.5",
+    "regex>=2019.11.1,<2022.3.2",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = ["check-manifest"]
+tests = ["tox", "pylint", "black>=21.5b1", "flake8", "coverage"]
+
+[project.urls]
+Homepage = "https://github.com/rcsb/py-rcsb_utils_citation"
+
+[tool.setuptools.packages.find]
+include = ["rcsb*"]  # must leave at "rcsb*" and not "rcsb.*", else the 'rcsb/__init__.py' file is dropped
+exclude = ["rcsb.utils.test*", "rcsb.mock-*", "test*"]
+namespaces = false
+
+[tool.setuptools.dynamic]
+version = {attr = "rcsb.utils.citation.__version__"}
+
+# Add this to prevent uv from automatically creating venvs within individual packages when running 'uv run ...' from within the package directory
+[tool.uv]
+managed = false
