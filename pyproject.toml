@@ -25,8 +25,8 @@ classifiers = [
 ]
 dependencies = [
     "rcsb.utils.io>=1.52",
-    "nltk>=3.2.5",
-    "regex>=2019.11.1,<2022.3.2",
+    "nltk>=3.9.1",
+    "regex>=2024.11.7",
 ]
 dynamic = ["version"]
 
