@@ -31,7 +31,6 @@ dependencies = [
 dynamic = ["version"]
 
 [project.optional-dependencies]
-dev = ["check-manifest"]
 tests = ["tox", "pylint", "black>=21.5b1", "flake8", "coverage"]
 
 [project.urls]
