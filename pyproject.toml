@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=61", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "rcsb.utils.citation"
@@ -8,6 +8,9 @@ description = "RCSB Python Wrapper Module for Citation Utilities"
 readme = "README.md"
 authors = [
     { name="John Westbrook", email="john.westbrook@rcsb.org" }
+]
+maintainers = [
+    { name="Dennis Piehl", email="dennis.piehl@rcsb.org" }
 ]
 license = "Apache-2.0"
 license-files = ["LICENSE"]
@@ -21,7 +24,7 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
-    "rcsb.utils.io>=1.15",
+    "rcsb.utils.io>=1.52",
     "nltk>=3.2.5",
     "regex>=2019.11.1,<2022.3.2",
 ]
@@ -34,14 +37,40 @@ tests = ["tox", "pylint", "black>=21.5b1", "flake8", "coverage"]
 [project.urls]
 Homepage = "https://github.com/rcsb/py-rcsb_utils_citation"
 
-[tool.setuptools.packages.find]
-include = ["rcsb*"]  # must leave at "rcsb*" and not "rcsb.*", else the 'rcsb/__init__.py' file is dropped
-exclude = ["rcsb.utils.test*", "rcsb.mock-*", "test*"]
-namespaces = false
+# ----------------  hatch configuration ----------------
+[tool.hatch.version]
+path = "rcsb/utils/citation/__init__.py"
 
-[tool.setuptools.dynamic]
-version = {attr = "rcsb.utils.citation.__version__"}
+[tool.hatch.build]
+exclude = [
+    "/rcsb/utils/test*/**",
+    "/rcsb/mock-*/**",
+    "test*/**"
+]
 
+[tool.hatch.build.targets.sdist]
+include = [
+    "/rcsb/**",
+    "/README.md",
+    "/LICENSE",
+    "/HISTORY.txt",
+    "/pyproject.toml"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["rcsb"]
+
+[tool.hatch.envs.default]
+skip-install = true
+
+# ----------------  test configuration ----------------
+[tool.hatch.envs.hatch-test]
+dependencies = ["tox"]
+
+[tool.hatch.envs.hatch-test.scripts]
+run = ["tox"]
+
+# ----------------  UV configuration ----------------
 # Add this to prevent uv from automatically creating venvs within individual packages when running 'uv run ...' from within the package directory
 [tool.uv]
 managed = false
