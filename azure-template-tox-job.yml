@@ -126,7 +126,7 @@ jobs:
       - script: pip install .[tests]
         displayName: "Install dependencies"
       #
-      - script: python -c "import nltk; nltk.download('wordnet')"
+      - script: python -c "import nltk; nltk.download('popular')"
         displayName: "Download NLTK data"
       #
       - ${{ if startsWith(parameters.tox, 'py') }}:
