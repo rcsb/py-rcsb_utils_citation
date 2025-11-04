@@ -3,7 +3,6 @@
 # Date:    20-Nov-2019 J. Westbrook
 #
 #  Updates:
-#   4-Nov-2025 dwp Add automatic download of NLTK data if not present
 ##
 
 
@@ -13,7 +12,7 @@ import string
 import unicodedata
 
 import regex as re
-import nltk
+# import nltk
 from nltk.stem.wordnet import WordNetLemmatizer
 
 from rcsb.utils.io.FileUtil import FileUtil
@@ -22,13 +21,14 @@ from rcsb.utils.io.StashableBase import StashableBase
 
 logger = logging.getLogger(__name__)
 
-# Below allows for automatic download of missing nltk data (e.g., on a fresh start-up without prebuilt scratch),
-# but be aware that it could run into a race condition if a parallel worker tries to do the same thing.
-try:
-    nltk.data.find("corpora/wordnet.zip")
-except LookupError:
-    nltk.download("popular")  # Only download the 'popular' set (~0.5 GB).
-    # In weekly-update workflow, currently downloading 'all' (~3.5 GB) up front, prior to parallel workers being started
+# Below would allow for automatic download of missing nltk data (e.g., on a fresh start-up without prebuilt scratch),
+# but since this could be called by multiple processors at the same time, it could run into a race condition.
+# So, leaving commented out for now.
+# try:
+#     nltk.data.find("corpora/wordnet.zip")
+# except LookupError:
+#     nltk.download("popular")  # Only download the 'popular' set (~0.5 GB).
+#     # In weekly-update workflow, currently downloading 'all' (~3.5 GB) up front, prior to parallel workers being started
 
 
 class JournalTitleAbbreviationProvider(StashableBase):
