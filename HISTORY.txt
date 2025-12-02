@@ -17,3 +17,4 @@
    9-Dec-2024  - V0.24 Update Azure pipelines to use latest macOS, Ubuntu, and python 3.10
    8-Oct-2025  - V0.25 Switch to 'pyproject.toml' file and update pipelines
    4-Nov-2025  - V0.26 Switch from setuptools to hatch build system
+   2-Dec-2025  - V0.27 Updates to build setup
