@@ -4,6 +4,7 @@
 #
 # Updates:
 # 21-Jul-2021 jdw  Make this provider a subclass of StashableBase
+# 17-Dec-2025 dwp  Use https for crossref download
 ##
 
 import copy
@@ -29,7 +30,7 @@ class CitationReferenceProvider(StashableBase):
         cachePath = kwargs.get("cachePath", ".")
         super(CitationReferenceProvider, self).__init__(cachePath, [dirName])
 
-        urlTargetCrossRef = kwargs.get("urlTargetCrossRef", "http://ftp.crossref.org/titlelist/titleFile.csv")
+        urlTargetCrossRef = kwargs.get("urlTargetCrossRef", "https://ftp.crossref.org/titlelist/titleFile.csv")
         urlTargetMedline = kwargs.get("urlTargetMedline", "https://ftp.ncbi.nlm.nih.gov/pubmed/J_Medline.txt")
         dirPath = os.path.join(cachePath, dirName)
         useCache = kwargs.get("useCache", True)
