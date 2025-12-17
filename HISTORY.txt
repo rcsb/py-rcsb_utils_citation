@@ -18,3 +18,4 @@
    8-Oct-2025  - V0.25 Switch to 'pyproject.toml' file and update pipelines
    4-Nov-2025  - V0.26 Switch from setuptools to hatch build system
    2-Dec-2025  - V0.27 Updates to build setup
+  17-Dec-2025  - V0.28 Switch crossref title list download to https
